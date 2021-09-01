@@ -1,18 +1,19 @@
 <template>
   <div class="set-up">
     <div></div>
-    <span>{{ provide }}</span>
+    <span>{{ injectValue }}</span>
     <div></div>
   </div>
 </template>
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, inject } from "vue";
 export default {
   props: {},
   setup(props) {
-    provide(ThemeSymbol, "dark");
+    // provide(ThemeSymbol, "dark");
     const provide = ref("provide");
-    return { provide };
+    const injectValue = inject("provideValues","没找到对应provide名的传值,自己的inject默认值");
+    return { provide, injectValue };
   },
 };
 </script>
